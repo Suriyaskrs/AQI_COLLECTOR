@@ -29,7 +29,7 @@ class GitHubAQICollector:
     def setup_csv(self):
         """Initialize CSV file with headers"""
         columns = [
-            'city', 'timestamp', 'aqi', 'co', 'no', 'no2', 'o3', 'so2',
+            'city', 'lan','lot','timestamp', 'aqi', 'co', 'no', 'no2', 'o3', 'so2',
             'pm2_5', 'pm10', 'nh3', 'temperature', 'humidity'
         ]
         pd.DataFrame(columns=columns).to_csv(self.csv_path, index=False)
@@ -60,6 +60,8 @@ class GitHubAQICollector:
             # Prepare data record
             record = {
                 'city': city,
+                'lat':lat,
+                'lon':lon,
                 'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
                 'aqi': aqi_data['list'][0]['main']['aqi'],
                 'co': aqi_data['list'][0]['components']['co'],
