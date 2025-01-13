@@ -20,7 +20,7 @@ class GitHubAQICollector:
         # Setup data storage
         self.data_dir = Path('data')
         self.data_dir.mkdir(exist_ok=True)
-        self.csv_path = self.data_dir / 'aqi_data.csv'
+        self.csv_path = self.data_dir / 'AQI_dataset.csv'
         
         # Initialize CSV if it doesn't exist
         if not self.csv_path.exists():
