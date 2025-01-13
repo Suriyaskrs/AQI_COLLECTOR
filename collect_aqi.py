@@ -107,7 +107,6 @@ class GitHubAQICollector:
         
         for city in cities:
             self.collect_data(city)
-            time.sleep(2)  # Rate limiting
 
 if __name__ == "__main__":
     collector = GitHubAQICollector()
